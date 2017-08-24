@@ -1,0 +1,31 @@
+{
+  "name": "article_scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hockey4life63/articleScraper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hockey4life63/articleScraper/issues"
+  },
+  "homepage": "https://github.com/hockey4life63/articleScraper#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0",
+    "moment": "^2.18.1",
+    "mongoose": "^4.4.6",
+    "morgan": "^1.7.0",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  }
+}

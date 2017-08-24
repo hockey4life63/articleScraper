@@ -1,0 +1,82 @@
+<style type="text/css">
+        .comment-submit{
+    margin:10px 0;
+    display: none;
+}
+    </style>
+    <section class="section">
+        <div class="container">
+            <div class="card">
+                <div class="card-content">
+                    <p class="title">
+                        {{title}}
+                    </p>
+                    <p class="subtitle">
+                        {{text}}
+                    </p>
+                </div>
+                <footer class="card-footer">
+                    <p class="card-footer-item">
+                        <span><a href="{{link}}" target="_blank">Open Article</a> </span>
+                    </p>
+                    <p class="card-footer-item">
+                        <span> <a id="open-comment-form">Comment</a> </span>
+                    </p>
+                </footer>
+            </div>
+            <div class="comment-submit container" data-objectId={{_id}}>
+                <form method="POST" action="" >
+                    <div class="field">
+                        <label class="label">Name</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Text input" name="name">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Message</label>
+                        <div class="control">
+                            <textarea class="textarea" placeholder="Textarea" name="comment"></textarea>
+                        </div>
+                    </div>
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            {{#each comment}}
+                <article class="message">
+                    <div class="message-header">
+                                <p>{{this.name}}</p>
+                                <button type="submit" data-commentId={{this._id}} class="delete is-medium"></button>
+                                </form>
+                                                    </div>
+                    <div class="message-body">
+                        {{this.comment}}
+                    </div>
+                </article>
+            {{/each}}
+        </div>
+    </section>
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript">
+  $("#open-comment-form").on("click", ()=>{
+    $(".comment-submit").toggle();
+  })
+  $(".delete").on("click", function () {
+      $.ajax({
+        type:"DELETE",
+        data:{
+            commentId:$(this).attr("data-commentId")
+        },
+        success: results=>{
+        console.log("finished")
+       window.location = window.location;
+      }
+      })
+  })
+  </script>

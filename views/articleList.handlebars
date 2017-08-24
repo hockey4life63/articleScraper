@@ -1,0 +1,19 @@
+</section>
+    <section class="section">
+    <div class="container">
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical">
+                {{#each article}}
+                <div class="tile">
+                    <div class="tile is-parent">
+                        <article class="tile is-child notification is-danger">
+                            <p class="title"><a href="./id/{{this._id}}">{{this.title}}</a></p>
+                            <p class="subtitle">{{this.text}}...</p>
+                        </article>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        </div>
+    </section>
